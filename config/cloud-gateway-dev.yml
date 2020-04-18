@@ -1,0 +1,28 @@
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: pay
+          uri: lb://cloud-pay
+          predicates:
+            - Path=/pay/**
+        - id: order
+          uri: lb://cloud-order
+          predicates:
+          - Path=/order/**
+        - id: user
+          uri: lb://cloud-user
+          predicates:
+          - Path=/user/**
+        - id: goods
+          uri: lb://cloud-goods
+          predicates:
+          - Path=/goods/**
+        - id: user
+          uri: lb://cloud-user
+          predicates:
+          - Path=/user/**
